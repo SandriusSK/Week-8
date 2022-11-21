@@ -2,6 +2,7 @@ package ie.atu.week8;
 
 import java.io.*;
 import java.nio.file.Path;
+import java.util.Scanner;
 
 public class CreateFile {
     public static void main(String[] args) {
@@ -19,6 +20,18 @@ public class CreateFile {
             } catch (IOException e)
             {
                 e.printStackTrace();
+            }
+            Scanner inputFile = null;
+            try {
+                inputFile = new Scanner(new File("Student.txt"));
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+            // Read until the end of the file.
+            while (inputFile.hasNext())
+            {
+                String str = inputFile.nextLine();
+                System.out.println(str);
             }
 
         }
